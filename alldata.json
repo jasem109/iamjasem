@@ -1,0 +1,58 @@
+{
+  "typingWords": [
+    "Physics",
+    "Spintronics",
+    "Research Assistant",
+    "Khulna University"
+  ],
+
+  "about": {
+    "description": "I am an undergraduate student with a strong academic background and a passion for co-curricular activities. Currently, I work as a research assistant in spintronics, focusing on non-collinear antiferromagnets, spin waves, and spin reversal mechanisms. My research aims to contribute to advancements in data storage and quantum computing. I actively participate in physics competitions, workshops, and student organizations, which have honed my leadership and teamwork skills. I am committed to lifelong learning and excited about opportunities to further my research and contribute to the scientific community."
+  },
+
+  "publications": [
+    {
+      "title": "Reversal of noncollinear antiferromagnets with octupole by chirped spin-orbit torque",
+      "authors": "M. T. Islam*, Mohammad A. Jasem*, YaDong Liu, X. S. Wang, X. R. Wang, T. Min",
+      "journal": "Journal: Physical Review B",
+      "description": "Electrical manipulation of chiral noncollinear antiferromagnetic (AFM) order via spin-orbit torque (SOT) has attracted significant attention in terms of both fundamental insights and applications in information technology. Here we investigate the alternating chirped current pulse (ACCP) driven resonant excitation of noncollinear AFM order of pristine Mn3Sn, and thus achieves efficient reversal of octupole moment, defined as a cluster magnetic order parameter, without an external field. The reversal proceeds via out-of-plane rotation of the octupole moment, whose precessional dynamics exhibit a counter-rotation relative to the atomic moments. The enhanced efficiency of field-free deterministic switching arises from resonant energy exchange between the octupole moment and the SOT fields in ACCP: the octupole moment resonantly absorbs (emits) energy from (to) the SOT fields before (after) crossing the energy barrier. Therefore, these findings deepen the understanding of field-free SOT-driven octupole moment dynamics and propose a pathway toward ultrafast, low-power spintronic devices.",
+      "link": "https://journals.aps.org/prb/accepted/10.1103/2cqq-gsr5"
+    },
+    {
+      "title": "Field-free fast magnetization switching of a ferromagnetic nanoparticle by a down chirped current pulse via spin-orbit torque",
+      "authors": "Sumaya Parvin, Mohammad A. Jasem, Md. Nayeem Rifat, M. T. Islam",
+      "journal": "Conference: Physics for the Future: Exploring Matter, Energy, Life and Cosmos",
+      "description": "A new method for dependable and effective magnetic data storage is field-free quick magnetization switching of a ferromagnetic nanoparticle using spin-orbit torque (SOT) with a down-chirped current pulse. This technique improves SOT-driven magnetization reversal without the need for an external magnetic field by taking use of the time-dependent frequency modulation of a chirped pulse. The system is optimally excited by the down-chirped pulse, which also improves switching speed and uses less energy. This method opens up a viable avenue for next-generation spintronic devices, allowing for memory and logic applications that are incredibly quick and energy-efficient.",
+      "link": "https://doi.org/10.13140/RG.2.2.28988.96646"
+    }
+  ],
+
+  "education": [
+    {
+      "degree": "Undergraduation",
+      "institution": "Khulna University, Bangladesh",
+      "details": "Undergraduate student<br>Physics Discipline<br><a href='grades.html'>Result Details</a><br>22 Feb,2022 - present"
+    },
+    {
+      "degree": "Higher Secondary (HSC)",
+      "institution": "Milestone College, Uttara, Dhaka",
+      "details": "GPA: 5.00<br>July, 2018 - March, 2020"
+    },
+    {
+      "degree": "Secondary School (SSC)",
+      "institution": "Ataturk Govt. Model High School",
+      "details": "GPA: 5.00<br>January, 2013 - March, 2018"
+    }
+  ],
+  "skills": [
+    {"name": "MATLAB", "percent": 40},
+    {"name": "Python", "percent": 50},
+    {"name": "HTML & CSS", "percent": 65},
+    {"name": "JavaScript", "percent": 60},
+    {"name": "MuMax3", "percent": 55},
+    {"name": "VAMPIRE", "percent": 60}
+  ]
+
+}
+
+
