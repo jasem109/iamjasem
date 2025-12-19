@@ -33,11 +33,7 @@
       "institution": "Khulna University, Bangladesh",
       "details": "Undergraduate student<br>Physics Discipline<br><a href='grades.html'>Result Details</a><br>22 Feb,2022 - present"
     },
-    {
-      "degree": "Higher Secondary (HSC)",
-      "institution": "Milestone College, Uttara, Dhaka",
-      "details": "GPA: 5.00<br>July, 2018 - March, 2020"
-    },
+    
     {
       "degree": "Secondary School (SSC)",
       "institution": "Ataturk Govt. Model High School",
@@ -46,9 +42,9 @@
   ],
   "skills": [
     {"name": "MATLAB", "percent": 40},
-    {"name": "Python", "percent": 50},
+    {"name": "Python", "percent": 60},
     {"name": "HTML & CSS", "percent": 65},
-    {"name": "JavaScript", "percent": 60},
+    {"name": "JavaScript", "percent": 30},
     {"name": "MuMax3", "percent": 55},
     {"name": "VAMPIRE", "percent": 60}
   ]

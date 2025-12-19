@@ -1,0 +1,124 @@
+@import url(colors.css);
+
+/* ================= FOOTER ================= */
+
+footer {
+  background-color: var(--dark-color2);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Main container */
+.footer_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ================= LEFT BLOCK ================= */
+
+.box2 {
+  flex: 1 1 15px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.box2 h2 {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.box2 h2 span {
+  color: var(--accent-color-dark);
+}
+
+.box2 p {
+  color: var(--box-heading);
+  font-size: 1rem;
+}
+
+/* ================= RIGHT BLOCK ================= */
+
+.box1 {
+  flex: 1 1 220px;
+  text-align: left;
+}
+
+.box_heading {
+  color: var(--box-heading);
+  font-weight: 800;
+  margin-bottom: 10px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.useful {
+  margin-bottom: 20px;
+}
+
+/* Links */
+.box1 p {
+  margin: 0;
+  padding-bottom: 12px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  position: relative;
+}
+
+.box1 a {
+  text-decoration: none;
+  color: inherit;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Hover underline animation */
+.box1 p::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 0;
+  height: 1px;
+  background: var(--box-heading);
+  transition: width 0.4s ease;
+}
+
+.box1 p:hover::after {
+  width: 100%;
+}
+
+/* ================= BOTTOM ================= */
+
+.lower_footer {
+  margin: 2rem auto 1rem;
+  max-width: 900px;
+}
+
+.copyright {
+  color:#a19d9d;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1.2rem;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .footer_div {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .box1 {
+    text-align: center;
+  }
+
+  .box1 p::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

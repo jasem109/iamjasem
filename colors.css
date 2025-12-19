@@ -1,0 +1,22 @@
+:root {
+    --primary-color: #3c8bd9;
+    --hover-background: #1f3654;
+    --secondary-color: #ecf0f1;
+    --accent-color: #bdbdba;
+    --font-stack: 'Roboto', sans-serif;
+    --dark-color1:#343333;
+    --dark-color2:#000000;
+    --box-heading:#e3e0e0;
+    --first-name:#ff0000;
+    --main-font:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    --heading-font: 'Georgia', serif; 
+    --section1-color:#070620;
+    --body-color:white;
+    --section1-paragraph:#6f6565;
+    --download:#100c2c;
+  
+    /* Dark mode variables */
+    --primary-color-dark: #ecf0f1;
+    --secondary-color-dark: #2c3e50;
+    --accent-color-dark: #938f8f;
+  }
