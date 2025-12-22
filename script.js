@@ -191,9 +191,9 @@ function loadSkills(skills) {
   });
 }
 
-
 // Reference to the container where form will be inserted
 const formContainer = document.getElementById('contactFormContainer');
+
 // Fetch JSON config
 fetch('formConfig.json')
   .then(response => response.json())
@@ -203,6 +203,7 @@ fetch('formConfig.json')
     form.action = config.action;
     form.method = "POST";
     form.className = "contact-form";
+    form.style.position = "relative"; // to position stars relative if needed
 
     // Hidden access key
     const hiddenInput = document.createElement('input');
@@ -246,17 +247,77 @@ fetch('formConfig.json')
     const button = document.createElement('button');
     button.type = "submit";
     button.textContent = "Send Message";
+
+    // ======= Button Styling =======
+    button.style.backgroundColor = "#007BFF";
+    button.style.color = "#FFFFFF";
+    button.style.border = "none";
+    button.style.padding = "10px 20px";
+    button.style.borderRadius = "5px";
+    button.style.cursor = "pointer";
+    button.style.transition = "0.4s";
+
+    // Hover effect
+    button.addEventListener('mouseover', () => {
+      button.style.backgroundColor = "#00a1ff";
+      button.style.transform = "translateY(-3px)";
+    });
+    button.addEventListener('mouseout', () => {
+      button.style.backgroundColor = "#007BFF";
+      button.style.transform = "translateY(0)";
+    });
+
     form.appendChild(button);
 
     // Add form to container
     formContainer.appendChild(form);
 
     // =======================
+    // SPARKLES FUNCTION
+    // =======================
+    function createSparkles(button) {
+      const rect = button.getBoundingClientRect();
+      for (let i = 0; i < 15; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.style.position = 'fixed';
+        sparkle.style.width = '6px';
+        sparkle.style.height = '6px';
+        sparkle.style.background = 'gold';
+        sparkle.style.borderRadius = '50%';
+        sparkle.style.pointerEvents = 'none';
+        sparkle.style.left = rect.left + rect.width/2 + 'px';
+        sparkle.style.top = rect.top + rect.height/2 + 'px';
+        sparkle.style.opacity = '1';
+        sparkle.style.transform = 'scale(1)';
+
+        // Random movement
+        const dx = (Math.random() - 0.5) * 100;
+        const dy = (Math.random() - 0.5) * 100;
+
+        // Animate using JS
+        let start = null;
+        function animate(timestamp) {
+          if (!start) start = timestamp;
+          const progress = (timestamp - start)/1000; // seconds
+          sparkle.style.transform = `translate(${dx*progress}px, ${dy*progress}px) scale(${1 + progress})`;
+          sparkle.style.opacity = `${1 - progress}`;
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            sparkle.remove();
+          }
+        }
+        requestAnimationFrame(animate);
+
+        document.body.appendChild(sparkle);
+      }
+    }
+
+    // =======================
     // FORM SUBMISSION LOGIC
     // =======================
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       const formData = new FormData(form);
 
       button.textContent = "Sending...";
@@ -268,9 +329,10 @@ fetch('formConfig.json')
           body: formData
         });
 
-        if(response.ok){
-          button.textContent = "Message Sent!";
+        if (response.ok) {
+          button.textContent = "Your message has been sent successfully!";
           form.reset();
+          createSparkles(button); // sparkle effect
         } else {
           button.textContent = "Error! Try again";
         }
@@ -279,14 +341,12 @@ fetch('formConfig.json')
         button.textContent = "Error! Try again";
       }
 
-      // Reset button after 2.5 seconds
+      // Reset button after 6 seconds
       setTimeout(() => {
         button.textContent = "Send Message";
         button.disabled = false;
-      }, 2500);
+      }, 6000);
     });
-    
+
   })
   .catch(err => console.error("Error loading form config:", err));
-
-  
