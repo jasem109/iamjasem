@@ -85,6 +85,24 @@ function toggleReadMore(index) {
   document.getElementById(`full-${index}`).classList.toggle("show");
 }
 
+
+  const navImgs = document.querySelectorAll('.nav_img');
+
+  navImgs.forEach(img => {
+    img.addEventListener('click', (e) => {
+      e.stopPropagation(); // prevent document click
+      navImgs.forEach(i => i.classList.remove('active'));
+      img.classList.add('active');
+    });
+  });
+
+  // Click anywhere else → reset
+  document.addEventListener('click', () => {
+    navImgs.forEach(i => i.classList.remove('active'));
+  });
+
+
+
 // ---------------- TYPING HEADER ----------------
 const typingText = document.getElementById("typing-text");
 let wordIndex = 0;
@@ -176,7 +194,6 @@ function loadSkills(skills) {
 
 // Reference to the container where form will be inserted
 const formContainer = document.getElementById('contactFormContainer');
-
 // Fetch JSON config
 fetch('formConfig.json')
   .then(response => response.json())
@@ -233,7 +250,43 @@ fetch('formConfig.json')
 
     // Add form to container
     formContainer.appendChild(form);
+
+    // =======================
+    // FORM SUBMISSION LOGIC
+    // =======================
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      button.textContent = "Sending...";
+      button.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData
+        });
+
+        if(response.ok){
+          button.textContent = "Message Sent!";
+          form.reset();
+        } else {
+          button.textContent = "Error! Try again";
+        }
+      } catch (error) {
+        console.error(error);
+        button.textContent = "Error! Try again";
+      }
+
+      // Reset button after 2.5 seconds
+      setTimeout(() => {
+        button.textContent = "Send Message";
+        button.disabled = false;
+      }, 2500);
+    });
+    
   })
   .catch(err => console.error("Error loading form config:", err));
 
-
+  

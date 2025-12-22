@@ -1,21 +1,51 @@
-html { 
-  scroll-behavior: smooth; 
+/* =========================================================
+   THEME VARIABLES
+========================================================= */
+
+/* ---------- DARK MODE (DEFAULT) ---------- */
+:root {
+  --bg-main: #000000;
+  --bg-card: #191919;
+  --bg-input: #111111;
+
+  --text-main: #7e8994;
+  --text-heading: #c8cfd8;
+  --text-accent: #b2bcc6;
+
+  --btn-bg: #7e8994;
+  --btn-text: #000000;
+
+  --nav-bg: #c8cfd8;
+  --nav-active: #f2f3f5;
+
+  --shadow-soft: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #000000;
-  color: #333;
-  
+  background: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* ---------------- HEADER ---------------- */
+/* =========================================================
+   HEADER
+========================================================= */
+
 header {
- 
-  color: #c8cfd8;
   text-align: center;
-  padding: 40px 20px 20px 20px;
+  padding: 40px 20px 20px;
+  color: var(--text-heading);
 }
 
 #typing-text::after {
@@ -30,82 +60,90 @@ header {
   100% { opacity: 1; }
 }
 
+/* =========================================================
+   CV BUTTON
+========================================================= */
+
 .cv-btn {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 28px;
-  background: #7e8994;
-  color: #000000;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   text-decoration: none;
   font-weight: bold;
-  border-radius:2px;
-  transition: all 0.6s ease;
+  border-radius: 2px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  border: 1px solid transparent;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease;
 }
 
 .cv-btn:hover {
-  background: #191919;
-  text-decoration: none;
-  color:#c8cfd8;
+  background: var(--bg-card);
+  color: var(--text-heading);
+  border-color: var(--text-heading);
+  transform: translateY(-2px);
 }
 
+/* =========================================================
+   SECTIONS
+========================================================= */
 
-/* ---------------- SECTIONS ---------------- */
-section {
+section,
+#skills,
+.contact-section {
   padding: 20px;
   max-width: 900px;
-  margin: 20px auto;   
-  background: #000000;
+  margin: 20px auto;
+  background: var(--bg-main);
   border-radius: 10px;
 }
 
+/* =========================================================
+   PROJECTS / PUBLICATIONS
+========================================================= */
 
-/* ---------------- PROJECT GRID ---------------- */
 #project-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* ---------------- PROJECT / PUBLICATION CARD ---------------- */
-.project-card, .publication-card {
-  background: #191919;
+.project-card,
+.publication-card {
+  background: var(--bg-card);
   padding: 20px;
   border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-card:hover, .publication-card:hover {
+.project-card:hover,
+.publication-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* ---------------- LINKS ---------------- */
-.project-card a, .publication-card a {
+.project-card a,
+.publication-card a {
+  color: var(--text-accent);
   text-decoration: none;
-  color: #b2bcc6;
   font-weight: bold;
 }
 
-a:hover {
-  text-decoration: underline;
-}
+/* =========================================================
+   READ MORE
+========================================================= */
 
-/* ---------------- READ MORE / FULL TEXT ---------------- */
-.full-text {
-  display: none;
-}
-
-.full-text.show {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
+.full-text { display: none; }
+.full-text.show { display: block; }
+.hidden { display: none; }
 
 .read-more {
-  color: #b2bcc6;
+  color: var(--text-accent);
   cursor: pointer;
   font-weight: bold;
 }
@@ -114,76 +152,64 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ---------------- HEADINGS / TEXT ---------------- */
-h3, p {
-  color: #7e8994;
-}
-p{
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
+/* =========================================================
+   HEADINGS / TEXT
+========================================================= */
+
 h2 {
-  color: #c8cfd8;
+  color: var(--text-heading);
 }
 
-/* ---------------- EDUCATION ---------------- */
+h3,
+p {
+  color: var(--text-main);
+}
+
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+#education-list {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+gap:20px;
+}
 
 .education-card {
-  background: #191919;
+  background: var(--bg-card);
   padding: 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
   line-height: 1.5em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-#education-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
 
 .education-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .education-card h3 {
-  color: #c8cfd8;
+  color: var(--text-heading);
 }
 
-.education-card b, .education-card p {
-  color: #7e8994;
+.education-card b,
+.education-card p {
+  color: var(--text-main);
 }
 
 .education-card a {
-  color: #b2bcc6;
-  font-weight: bold;
+  color: var(--text-accent);
   text-decoration: none;
+  font-weight: bold;
 }
 
-.education-card a:hover {
-  text-decoration: underline;
-}
-
-/*----------SKILLSET----------*/
-
-#skills {
-  padding: 40px 20px;
-  max-width: 900px;
-  margin: 0 auto 40px;
-  background: #000000;
-  border-radius: 10px;
-  
-}
-
-#skills h2 {
-  color: #c8cfd8;
-  margin-bottom: 10px;
-}
-
-#skills p {
-  color: #7e8994;
-  margin-bottom: 30px;
-}
+/* =========================================================
+   SKILLS
+========================================================= */
 
 .skills-container {
   display: flex;
@@ -192,16 +218,8 @@ h2 {
   gap: 20px;
 }
 
-.skill {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .skill p {
   margin-top: 15px;
-  color: #7e8994;
   font-weight: bold;
 }
 
@@ -215,35 +233,42 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
 }
 
 .circle span {
-  position: absolute;
+  color: var(--text-heading);
   font-weight: bold;
-  color: #f7f9fb;
 }
 
+.circle:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 12px 25px var(--shadow-soft),
+    0 0 30px var(--shadow-soft);
+  filter: brightness(1.2);
+}
 
-
-
-
-
-/*--------NAV-------*/
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
 
 .bottom-nav {
   position: fixed;
-  bottom: 0.8em; 
-  left: 50%;          
+  bottom: 0.8em;
+  left: 50%;
   transform: translateX(-50%);
-  width: 94%;          
+  width: 94%;
+  max-width: clamp(20rem, 80%, 25rem);
   height: 60px;
-  background-color: #461cb9;
+  background: var(--nav-bg);
   border-radius: 10px;
   z-index: 100;
-   max-width: clamp(20rem, 80%, 25rem);
- 
 }
-
 
 .bottom-nav ul {
   display: flex;
@@ -253,37 +278,25 @@ h2 {
   list-style: none;
 }
 
-.nav_div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .nav_img {
   width: 30px;
   height: 30px;
-  transition: transform 0.2s;
+  background: var(--nav-bg);
+  transition: transform 0.2s ease, background-color 0.25s ease;
+  cursor: pointer;
 }
 
-.nav_img:hover {
-  transform: scale(1.2);
+.nav_img.active {
+  background: var(--nav-active);
+  border-radius: 50%;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
 }
 
-
-.contact-section {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #000000;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.contact-section h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #c8cfd8;
-}
+/* =========================================================
+   CONTACT
+========================================================= */
 
 .contact-form {
   display: flex;
@@ -292,48 +305,41 @@ h2 {
 }
 
 .contact-form label {
+  color: var(--text-main);
   font-weight: bold;
-  margin-bottom: 0.3rem;
-  color:#7e8994;
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 0.8rem;
-  border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-  background-color: #111;
-  color:aqua;
+  border: 1px solid #ccc;
+  background: var(--bg-input);
+  color: var(--text-accent);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: #461cb9;
-  box-shadow: 0 0 5px rgba(70,28,185,0.3);
+  border-color: var(--text-accent);
+  box-shadow: 0 0 5px var(--shadow-soft);
 }
 
 .contact-form button {
   padding: 0.8rem;
-  background-color: #461cb9;
-  color:#f7f9fb;
-  font-size: 1rem;
+  background: var(--text-main);
+  color: var(--btn-text);
   font-weight: bold;
-  border: none;
   border-radius: 6px;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.contact-form button:hover {
-  background-color: #3a1595;
-}
+/* =========================================================
+   FOOTER
+========================================================= */
 
-footer{
+footer {
   text-align: center;
-  margin-bottom:100px;
+  margin-bottom: 100px;
 }
-
